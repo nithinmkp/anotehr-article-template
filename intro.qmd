@@ -1,0 +1,12 @@
+Domestic household consumption is an important macroeconomic aggregate and accounts for about 60 per cent of national expenditure^[[See MSOPI](https://pib.gov.in/PressReleasePage.aspx?PRID=2010223)]. Consumer Sentiments  contain information about potential future changes in consumer spending and hence is of paramaount importance in business cycle research [@katona1951; @curtin_consumer_2007]. Consumer sentiments is an important indicator of business conditions of the economy and is often closely monitored by researchers and policy makers alike. Ever since the time series data on consumer sentiments have become available, here has been a prolonged interest in the power of consumer sentiment to predict business cycle fluctuations, and aggregate consumption growth [@mishkin_consumer_1978;@matsusaka_consumer_1995 ]. Using US data from 1953-1988, @matsusaka_consumer_1995 finds that all recesions were preceeded by a fall in confidence and all major falls in consumer sentiments were followed by a recession. It can be thought of as consumers correctly forecasting a fall in output or a fall in consumer confidence causing a fall in output. Despite the widespread attention given to surveys of consumer confidence, the mechanisms by which household attitudes influence the real economy are less well understood [@ludvigson_consumer_2004].
+
+
+
+
+
+
+
+
+
+
+

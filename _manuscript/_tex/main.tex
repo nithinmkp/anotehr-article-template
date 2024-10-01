@@ -1,0 +1,344 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  a4paper,
+  abstract]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{setspace}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\usepackage{hyperref}
+\usepackage{cleveref}
+\crefformat{equation}{equation~(#2#1#3)}
+\Crefformat{equation}{Equation~(#2#1#3)}
+%\renewcommand{\theequation}{\roman{equation}}
+%\setkomafont{disposition}{\bfseries}
+\usepackage[noblocks]{authblk}
+%\usepackage{etoolbox}
+\renewcommand*{\Authsep}{, }
+\renewcommand*{\Authand}{, }
+\renewcommand*{\Authands}{, }
+\renewcommand\Affilfont{\small}
+%\setkomafont{title}{\normalfont\bfseries}
+%\makeatletter
+%\patchcmd{\@maketitle}{\titlefont\small}{\titlefont\tiny}{}{}
+%\makeatother
+\usepackage[c2]{optidef}
+\usepackage{booktabs, longtable, colortbl, array}
+\usepackage[flushleft]{threeparttable}
+\usepackage{tabularray}
+\usepackage[singlelinecheck=false ]{caption}
+\Crefformat{table}{Table~(#2#1#3)}
+\Crefformat{figure}{Figure~(#2#1#3)} 
+\usepackage{float}   
+
+\Crefrangeformat{table}{Tables~(#3#1#4)~to~(#5#2#6)}
+\Crefrangeformat{figure}{Figures~(#3#1#4)~to~(#5#2#6)}
+
+\Crefmultiformat{table}{Table~(#2#1#3)}%
+{ and~(#2#1#3)}% the second argument is what comes after the first reference
+{, (#2#1#3)}% for three or more, separator format
+{ and~(#2#1#3)}% for the final reference in a series
+
+\Crefmultiformat{figure}{Figure~(#2#1#3)}%
+{ and~(#2#1#3)}% the second argument is what comes after the first reference
+{, (#2#1#3)}% for three or more, separator format
+{ and~(#2#1#3)}% for the final reference in a series
+
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\fancyhead{}
+%\fancyhead[RO,LE]{\textbf{Consumer Sentiments}}
+
+%\usepackage{enotez}
+%\let\footnote=\endnote
+%\setkomafont{title}{\small}
+
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Consumer Sentiments and its determinants},
+  pdfauthor={Nithin.M; XYZ; pqr},
+  pdfkeywords={one, two},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Consumer Sentiments and its determinants\thanks{Authors would
+like to thank Ms.~Monami Mitra, Director, Price Statistics Division,
+National Statistical Office, Government of India}}
+
+\author[1]{Nithin.M}
+\author[2]{XYZ}
+\author[1, 2]{pqr}
+
+\affil[1]{
+      Department of Humanities and Social Sciences, IIT Kharagpur
+  }
+\affil[2]{
+      University of Hyderabad
+  }
+
+\date{}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\setstretch{1.2}
+The extant literature have already examined the excess sensitivity of
+consumption, and the validity of the permanent income and life cycle
+hypothesis (PIH) for the developed countries. India is a big country
+with a significantly large cross sectional heterogeneity than the
+developed countries. It provides a rich information content to the micro
+level Indian data, which is nicely captured in the longitudinal dataset
+for the Indian households, given by CPHS, CMIE. Using this rich dataset,
+and inspired from Souleles (2004), this paper is the first genuine
+attempt to examine the excess sensitivity of consumption to sentiments,
+and the validity of PIH for India through an Euler equation framework.
+We find - (i) the excess sensitivity of consumption to sentiments
+exists, and PIH does not hold for India, (ii) since, sentiments mostly
+captures the perception household's uncertainty about their own
+financial condition, and the overall business conditions, precautionary
+savings motive holds for the Indian households, and (iii) the excess
+sensitivity of consumption to sentiments exists even after controlling
+for the household specific forecast errors about their own financial
+conditions. %
+\\
+\\
+\noindent%
+\textbf{Keywords:} one, two %
+ 
+\noindent%
+\textbf{JEL:} one, two
+\end{abstract}
+
+
+\newpage
+
+\setstretch{1.2}
+\section{Introduction}\label{sec-1}
+
+Domestic household consumption is an important macroeconomic aggregate
+and accounts for about 60 per cent of national expenditure\footnote{\href{https://pib.gov.in/PressReleasePage.aspx?PRID=2010223}{See
+  MSOPI}}. Consumer Sentiments contain information about potential
+future changes in consumer spending and hence is of paramaount
+importance in business cycle research
+(\citeproc{ref-curtin_consumer_2007}{Curtin, 2007};
+\citeproc{ref-katona1951}{Katona, 1951}). Consumer sentiments is an
+important indicator of business conditions of the economy and is often
+closely monitored by researchers and policy makers alike. Ever since the
+time series data on consumer sentiments have become available, here has
+been a prolonged interest in the power of consumer sentiment to predict
+business cycle fluctuations, and aggregate consumption growth
+(\citeproc{ref-matsusaka_consumer_1995}{Matsusaka \& Sbordone, 1995};
+\citeproc{ref-mishkin_consumer_1978}{Mishkin et al., 1978}). Using US
+data from 1953-1988, Matsusaka \& Sbordone
+(\citeproc{ref-matsusaka_consumer_1995}{1995}) finds that all recesions
+were preceeded by a fall in confidence and all major falls in consumer
+sentiments were followed by a recession. It can be thought of as
+consumers correctly forecasting a fall in output or a fall in consumer
+confidence causing a fall in output. Despite the widespread attention
+given to surveys of consumer confidence, the mechanisms by which
+household attitudes influence the real economy are less well understood
+(\citeproc{ref-ludvigson_consumer_2004}{Ludvigson, 2004}).
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-curtin_consumer_2007}
+Curtin, R. (2007). Consumer {Sentiment} {Surveys}: {Worldwide} {Review}
+and {Assessment}. \emph{Journal of Business Cycle Measurement and
+Analysis}, \emph{2007}(1), 7--42.
+\url{https://doi.org/10.1787/jbcma-v2007-art2-en}
+
+\bibitem[\citeproctext]{ref-katona1951}
+Katona, G. (1951). \emph{Psychological analysis of economic behavior.}
+
+\bibitem[\citeproctext]{ref-ludvigson_consumer_2004}
+Ludvigson, S. C. (2004). Consumer {Confidence} and {Consumer}
+{Spending}. \emph{Journal of Economic Perspectives}, \emph{18}(2),
+29--50. \url{https://doi.org/10.1257/0895330041371222}
+
+\bibitem[\citeproctext]{ref-matsusaka_consumer_1995}
+Matsusaka, J. G., \& Sbordone, A. M. (1995). {CONSUMER} {CONFIDENCE}
+{AND} {ECONOMIC} {FLUCTUATIONS}. \emph{Economic Inquiry}, \emph{33}(2),
+296--318. \url{https://doi.org/10.1111/j.1465-7295.1995.tb01864.x}
+
+\bibitem[\citeproctext]{ref-mishkin_consumer_1978}
+Mishkin, F. S., Hall, R., Shoven, J., Juster, T., \& Lovell, M. (1978).
+Consumer {Sentiment} and {Spending} on {Durable} {Goods}.
+\emph{Brookings Papers on Economic Activity}, \emph{1978}(1), 217.
+\url{https://doi.org/10.2307/2534366}
+
+\end{CSLReferences}
+
+
+
+
+\end{document}

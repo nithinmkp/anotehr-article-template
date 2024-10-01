@@ -1,0 +1,25 @@
+project:
+  type: manuscript
+
+manuscript:
+  article: main.qmd
+
+format:
+     pdf: 
+       keep-tex: true
+       template-partials: 
+         - "partials/title.tex"
+         - "partials/before-body.tex"
+       number-sections: true
+       documentclass: scrartcl
+       classoption: abstract
+       link-citations: true
+       colorlinks: false
+       include-in-header: 
+         - file: "preamble.tex"
+                     
+papersize: a4
+execute:
+  freeze: true
+
+
