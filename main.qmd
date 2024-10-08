@@ -17,8 +17,7 @@ author:
   - name: pqr
     affiliations:
       - ref: kgp
-      - ref: uoh 
-    
+      - ref: uoh     
 bibliography: Papers/ref.bib
 csl: apa
 linestretch: 1.2

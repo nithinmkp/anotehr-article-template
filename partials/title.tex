@@ -22,4 +22,8 @@ $for(by-affiliation)$
 $endfor$
 $endif$
 
+$if(date)$
 \date{$date$}
+$else$
+\date{} % Leaves the date blank if no date is provided
+$endif$

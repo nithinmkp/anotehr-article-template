@@ -17,6 +17,12 @@ format:
        colorlinks: false
        include-in-header: 
          - file: "preamble.tex"
+       fontsize: 12pt
+     docx:
+       number-sections: true
+       reference-doc: custom-reference-doc.docx
+       filters:
+         - authors-block   
                      
 papersize: a4
 execute:
